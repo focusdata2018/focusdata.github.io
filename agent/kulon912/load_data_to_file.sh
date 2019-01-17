@@ -6,5 +6,5 @@ cd /storage/sdcard0/agent912
 sn=$(cat /sys/sys_info/serial_number);
 for URL in `cat ./src_data.cfg`; 
 do echo $URL;
-./wget -U Mozilla -O ./data/output__$sn__$(date +%m_%d_%Y__%H_%M_%S).txt $URL
+./wget -U Mozilla -O ./data/output__$(echo $sn)__$(date +%m_%d_%Y__%H_%M_%S).txt $URL
 done
