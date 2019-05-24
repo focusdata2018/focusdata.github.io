@@ -18,8 +18,8 @@ fi
 
 pipe1=/tmp/pipe1
 trap "rm -f $pipe1" EXIT
-if [[ ! -p $pipe1 ]]; then 
-mkfifo $pipe
+if [[ ! -p "$pipe1" ]]; then 
+mkfifo "$pipe"
 fi 
 exit 0
 while true
