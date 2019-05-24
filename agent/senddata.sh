@@ -40,3 +40,4 @@ do
     echo -e "$date#from pipe1: \n$line"
  fi 
 done
+exit 0
