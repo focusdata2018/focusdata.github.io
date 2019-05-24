@@ -12,7 +12,7 @@ fi
 
 echo "DEBUG: I will get info from $DEST:$PORT"
 
-local out=$(echo -n "GET / HTTP/1.1\r\nhost: http://$DEST\r\nConnection:     close\r\n\r\n" | nc "$DEST" "$PORT")
+local out=$(echo -n "GET / HTTP/1.1\r\nhost: $DEST\r\nConnection:     close\r\n\r\n" | nc "$DEST" "$PORT")
 local iserror=$(echo "$out" | grep "Bad Request")
 
 if ! [[ "$iserror" ]]; then
