@@ -2,7 +2,7 @@
 declare -A cfgs
 CONF="./cfg.ini"
 if [ -f "$CONF" ]; then
-CFG=$(grep = $CONF | sed 's/ *= */=/g' | sed 's/ /_/g')
+CFG=$(grep = "$CONF" | sed 's/ *= */=/g' | sed 's/ /_/g')
 echo "$CFG" | while read line; 
 do
 key=$(echo $line | awk -F '=' '{print $1}')
