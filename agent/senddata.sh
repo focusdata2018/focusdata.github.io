@@ -17,9 +17,10 @@ echo "apikey=$apikey">./cfg.ini
 fi
 
 pipe1=/tmp/pipe1
-trap "rm -f $pipe1" EXIT
-if [[ ! -p "$pipe1" ]]; then 
-mkfifo "$pipe"
+#trap "rm -f $pipe1" EXIT
+if [[ ! -p $pipe1 ]]; then 
+mkfifo $pipe
+echo "pipe1 created"
 fi 
 exit 0
 while true
