@@ -1,7 +1,8 @@
 #!/bin/bash 
 declare -A cfgs
-if [[-f ./cfg.ini]]; then
-CFG=$(grep = ./cfg.ini | sed 's/ *= */=/g' | sed 's/ /_/g')
+CONF="./cfg.ini"
+if [-f $CONF]; then
+CFG=$(grep = $CONF | sed 's/ *= */=/g' | sed 's/ /_/g')
 echo "$CFG" | while read line; 
 do
 key=$(echo $line | awk -F '=' '{print $1}')
@@ -22,10 +23,11 @@ mkfifo $pipe
 fi 
 
 while true
- do
+do
  if read line <$pipe1; then
     if [[ "$line" == 'quit' ]]; then 
          break
     fi 
     echo $line
  fi 
+done
