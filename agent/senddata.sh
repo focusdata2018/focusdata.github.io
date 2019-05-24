@@ -1,6 +1,7 @@
 #!/bin/bash 
 declare -A cfgs
 CONF="./cfg.ini"
+apikey=""
 if [ -f "$CONF" ]; then
 CFG=$(grep = "$CONF" | sed 's/ *= */=/g' | sed 's/ /_/g')
 echo "$CFG" | while read line; 
@@ -8,7 +9,8 @@ do
 key=$(echo $line | awk -F '=' '{print $1}')
 val=$(echo $line | awk -F '=' '{print $2}')
 cfgs["$key"]="$val"
-echo "Reading config file: apikey="
+apikey=${cfg["apikey"]}
+echo "Reading config file: apikey=$apikey"
 done
 else
 echo -n "API key for focusdata.ru? " 
