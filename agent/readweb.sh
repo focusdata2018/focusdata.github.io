@@ -28,10 +28,15 @@ if [[ ! -p $pipe1 ]]; then
 echo "Reader not running"
 exit 1 
 fi 
+ 
 
-if [[ "$1" ]]; then 
-echo "$1" >$pipe1
-else 
-echo "Hello from $$" >$pipe1
-get_http "balsat-msk.ru" >$pipe1
-fi
+date=$(date +%T)
+line="Hello from $$"
+echo -e "$date#to pipe1: \n$line"
+echo "$line" >$pipe1
+
+line=$(get_http "balsat-msk.ru")
+echo -e "$date#to pipe1: \n$line"
+
+echo -e "$date#to pipe1: \nquit"
+echo "quit" >$pipe1
