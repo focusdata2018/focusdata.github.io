@@ -4,7 +4,7 @@ CONF="./cfg.ini"
 apikey=""
 if [ -f "$CONF" ]; then
 CFG=$(grep = "$CONF" | sed 's/ *= */=/g' | sed 's/ /_/g')
-echo "Readed config file:/n$CFG"
+echo -e "Readed config file:\n$CFG"
 echo "$CFG" | while read line; 
 do
 key=$(echo $line | awk -F '=' '{print $1}')
