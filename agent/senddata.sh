@@ -9,7 +9,7 @@ echo "$CFG" | while read line;
 do
 key=$(echo $line | awk -F '=' '{print $1}')
 val=$(echo $line | awk -F '=' '{print $2}')
-cfgs["$key"]="$val"
+cfgs[$key]="$val"
 echo "key=$key, val=$val"
 apikey=${cfg[apikey]}
 echo "Reading config file: apikey=$apikey"
