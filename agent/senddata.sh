@@ -32,10 +32,11 @@ fi
 while true
 do
  if read line <$pipe1; then
+    date=$(date)
+    echo -e "$date#Catched line from pipe1: /n$line"
     if [[ "$line" == 'quit' ]]; then 
          break
     fi 
-    date=$(date)
     echo -e "$date#Catched line from pipe1: /n$line"
  fi 
 done
