@@ -1,7 +1,7 @@
 #!/bin/bash 
 declare -A cfgs
 CONF="./cfg.ini"
-if [-f "$CONF"]; then
+if [ -f "$CONF"]; then
 CFG=$(grep = $CONF | sed 's/ *= */=/g' | sed 's/ /_/g')
 echo "$CFG" | while read line; 
 do
