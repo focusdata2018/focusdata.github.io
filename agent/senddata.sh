@@ -26,7 +26,7 @@ if [[ ! -p $pipe1 ]]; then
 mkfifo "$pipe1"
 echo "pipe1 created"
 fi 
-exit 0
+
 while true
 do
  if read line <$pipe1; then
