@@ -40,3 +40,4 @@ echo -e "$date#to pipe1: \n$line"
 
 echo -e "$date#to pipe1: \nquit"
 echo "quit" >$pipe1
+exit 0
