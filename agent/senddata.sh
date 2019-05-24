@@ -32,11 +32,15 @@ fi
 while true
 do
  if read line <$pipe1; then
+ echo "no data">$pipe1
     date=$(date +%T)
     echo -e "$date#from pipe1: \n$line"
     if [[ "$line" == 'quit' ]]; then 
          break
     fi 
+    if [[ "$line" != 'no data' ]]; then 
+         echo -e "$date#from pipe1: \n$line"
+    fi    
     echo -e "$date#from pipe1: \n$line"
  fi 
 done
