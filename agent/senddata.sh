@@ -11,7 +11,7 @@ key=$(echo $line | awk -F '=' '{print $1}')
 val=$(echo $line | awk -F '=' '{print $2}')
 cfgs[$key]="$val"
 echo "key=$key, val=$val"
-apikey=${cfg[apikey]}
+apikey=${cfgs[apikey]}
 echo "Reading config file: apikey=$apikey"
 done
 else
