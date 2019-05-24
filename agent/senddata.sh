@@ -21,7 +21,7 @@ trap "rm -f $pipe1" EXIT
 if [[ ! -p $pipe1 ]]; then 
 mkfifo $pipe
 fi 
-
+exit 0
 while true
 do
  if read line <$pipe1; then
