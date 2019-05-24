@@ -35,6 +35,7 @@ do
     if [[ "$line" == 'quit' ]]; then 
          break
     fi 
-    echo $line
+    date=$(date)
+    echo -e "$date#Catched line from pipe1: /n$line"
  fi 
 done
