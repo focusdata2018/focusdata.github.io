@@ -3,7 +3,7 @@
 remote_file="https://raw.githubusercontent.com/focusdata2018/focusdata2018.github.io/master/agent/senddata.sh" 
 local_file="/yandexdisk/focusdata/agent/k912_1/senddata.sh" 
 
-fuction download_scripts()
+download_scripts()
 {
 curl -o $local_file $remote_file
 cd /yandexdisk/focusdata/agent/k912_1
