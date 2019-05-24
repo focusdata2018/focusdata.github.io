@@ -16,7 +16,7 @@ read apikey
 echo "apikey=$apikey">./cfg.ini
 fi
 
-pipe1="/tmp/pipe1"
+pipe1=/tmp/pipe1
 #trap "rm -f $pipe1" EXIT
 if [[ ! -p $pipe1 ]]; then 
 mkfifo "$pipe"
