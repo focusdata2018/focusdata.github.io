@@ -32,7 +32,7 @@ fi
 
 date=$(date +%T)
 line="Hello from $$"
-echo -e "$date#to pipe1: \n$line"
+echo -e "\n$date#to pipe1: \n$line"
 echo "$line" >$pipe1
 
 line=$(get_http "balsat-msk.ru")
