@@ -1,6 +1,6 @@
 #!/bin/bash 
 declare -A cfgs
-if  [ -f ./cfg.ini]; then
+if [[-f ./cfg.ini]]; then
 CFG=$(grep = ./cfg.ini | sed 's/ *= */=/g' | sed 's/ /_/g')
 echo "$CFG" | while read line; 
 do
