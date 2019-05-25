@@ -65,6 +65,6 @@ send_size=$(expr length $line)
 m_date=$(date +%T)
 echo -e "$m_date#to pipe1: \n$line \nsend size:$send_size"
 
-echo -e "$date#to pipe1: \nquit"
+echo -e "$m_date#to pipe1: \nquit"
 echo "quit" >$pipe1
 exit 0
