@@ -46,19 +46,21 @@ rm -f "$pipe1"
 trap "rm -f $pipe1" EXIT
 if [[ ! -p $pipe1 ]]; then 
 mkfifo "$pipe1"
+#send main process signal ready to write pipe
+echo "EOP">$pipe1
 echo "pipe1 created"
 fi 
 
 while true
 do
  if read line <$pipe1; then
- echo "no data">$pipe1
+ echo "EOP">$pipe1
     date=$(date +%T)
     echo -e "$date#from pipe1: \n$line"
     if [[ "$line" == 'quit' ]]; then 
          break
     fi 
-    if [[ "$line" != 'no data' ]]; then 
+    if [[ "$line" != 'EOP' ]]; then 
          echo -e "$date#from pipe1: \n$line"
     fi    
     echo -e "$date#from pipe1: \n$line"
