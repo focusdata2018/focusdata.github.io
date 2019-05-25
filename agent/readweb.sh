@@ -53,8 +53,7 @@ echo "Reader not running"
 exit 1 
 fi 
  
-
-local m_date=$(date +%T)
+m_date=$(date +%T)
 line="Hello from $$"
 send_size=$(expr length $line)
 echo -e "\n$m_date#to pipe1: \n$line \nsend size:$send_size"
