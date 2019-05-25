@@ -54,7 +54,8 @@ fi
 while true
 do
  if read line <$pipe1; then
- echo "EOP">$pipe1
+    echo "EOP">$pipe1
+    resievd_size=$(expr length $line)
     m_date=$(date +%T)
     echo -e "$m_date#from pipe1: \n$line"
     if [[ "$line" == 'quit' ]]; then 
