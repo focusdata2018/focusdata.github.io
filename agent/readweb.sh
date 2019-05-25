@@ -52,12 +52,16 @@ if [[ ! -p $pipe1 ]]; then
 echo "Reader not running"
 exit 1 
 fi 
- 
+
+while 
+if read line <$pipe1; then
+if 
 m_date=$(date +%T)
 line="Hello from $$"
 send_size=$(expr length "$line")
 echo -e "\n$m_date#to pipe1: \n$line \nsend size:$send_size"
 echo "$line" >$pipe1
+fi
 
 line=$(get_http "balsat-msk.ru")
 send_size=$(expr length "$line")
