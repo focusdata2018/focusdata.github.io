@@ -59,6 +59,7 @@ echo -e "\n$m_date#to pipe1: \n$m_line \nsend size:$send_size"
 echo "$m_line" >$pipe1
 fi
 fi
+sleep 3
 done
 
 }
