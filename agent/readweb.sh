@@ -75,5 +75,5 @@ write_to_pipe "Hello from $$"
 g_line=$(get_http "balsat-msk.ru")
 write_to_pipe "$g_line"
 
-write_to_pipe "$g_line"
+write_to_pipe "quit"
 exit 0
