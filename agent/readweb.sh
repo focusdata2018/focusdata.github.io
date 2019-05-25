@@ -1,4 +1,5 @@
 #!/bin/bash
+#https://sprosi.pro/questions/2617/kak-ya-mogu-poluchit-razmer-fayla-v-stsenarii-bash
 function getfilesize(){
 local file=""
 if [[ "$1" ]]; then 
