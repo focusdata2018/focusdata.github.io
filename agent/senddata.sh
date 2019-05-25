@@ -55,15 +55,15 @@ while true
 do
  if read line <$pipe1; then
  echo "EOP">$pipe1
-    date=$(date +%T)
-    echo -e "$date#from pipe1: \n$line"
+    m_date=$(date +%T)
+    echo -e "$m_date#from pipe1: \n$line"
     if [[ "$line" == 'quit' ]]; then 
          break
     fi 
     if [[ "$line" != 'EOP' ]]; then 
-         echo -e "$date#from pipe1: \n$line"
+         echo -e "$m_date#from pipe1: \n$line"
     fi    
-    echo -e "$date#from pipe1: \n$line"
+    echo -e "$m_date#from pipe1: \n$line"
  fi 
 done
 exit 0
