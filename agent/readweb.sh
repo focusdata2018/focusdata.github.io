@@ -30,12 +30,12 @@ if [[ "$2" ]]; then
 PORT="$2"
 fi
 
-echo "DEBUG: I will get info from $DEST:$PORT"
+URLPATH="/"
+if [[ "$3" ]]; then 
+URLPATH="$3"
+fi
 
-local out=$(echo -n "GET / HTTP/1.1\r\nhost: http://$DEST\r\nUser-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:36.0) Gecko/20100101 Firefox/36.0\r\nConnection:     close\r\n\r\n" | nc "$DEST" "$PORT")
-
-local out=$((echo -e "GET / HTTP/1.1\r\nHost: $DEST\r\nUser-Agent: Mozilla\r\nConnection: keep-alive\r\nAccept: */*\r\n\r\n"; sleep 1) | nc "balsat-msk.ru" "80" | base64)
-
+echo "It will get info from $DEST:$PORT$URLPATH"
 
 local iserror=$(echo "$out" | grep "Bad Request")
 
@@ -54,15 +54,16 @@ exit 1
 fi 
  
 
-date=$(date +%T)
+local m_date=$(date +%T)
 line="Hello from $$"
 send_size=$(expr length $line)
-echo -e "\n$date#to pipe1: \n$line \nsend size:$send_size"
+echo -e "\n$m_date#to pipe1: \n$line \nsend size:$send_size"
 echo "$line" >$pipe1
 
 line=$(get_http "balsat-msk.ru")
 send_size=$(expr length $line)
-echo -e "$date#to pipe1: \n$line \nsend size:$send_size"
+m_date=$(date +%T)
+echo -e "$m_date#to pipe1: \n$line \nsend size:$send_size"
 
 echo -e "$date#to pipe1: \nquit"
 echo "quit" >$pipe1
