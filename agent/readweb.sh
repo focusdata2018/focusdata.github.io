@@ -52,11 +52,13 @@ fi
 
 date=$(date +%T)
 line="Hello from $$"
-echo -e "\n$date#to pipe1: \n$line"
+send_size=$(expr length $line)
+echo -e "\n$date#to pipe1: \n$line \nsend size:$send_size"
 echo "$line" >$pipe1
 
 line=$(get_http "balsat-msk.ru")
-echo -e "$date#to pipe1: \n$line"
+send_size=$(expr length $line)
+echo -e "$date#to pipe1: \n$line \nsend size:$send_size"
 
 echo -e "$date#to pipe1: \nquit"
 echo "quit" >$pipe1
