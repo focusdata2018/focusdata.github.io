@@ -46,6 +46,23 @@ else
 fi
 }
 
+function write_to_pipe()
+{
+while true
+do
+if read line <$pipe1; then
+if [[ "$line" == 'EOP' ]]; then
+local m_date=$(date +%T)
+local m_line="$1"
+send_size=$(expr length "$m_line")
+echo -e "\n$m_date#to pipe1: \n$m_line \nsend size:$send_size"
+echo "$m_line" >$pipe1
+fi
+fi
+done
+
+}
+
 pipe1=/tmp/pipe1
 
 if [[ ! -p $pipe1 ]]; then 
@@ -53,21 +70,10 @@ echo "Reader not running"
 exit 1 
 fi 
 
-while 
-if read line <$pipe1; then
-if 
-m_date=$(date +%T)
-line="Hello from $$"
-send_size=$(expr length "$line")
-echo -e "\n$m_date#to pipe1: \n$line \nsend size:$send_size"
-echo "$line" >$pipe1
-fi
+write_to_pipe "Hello from $$"
 
-line=$(get_http "balsat-msk.ru")
-send_size=$(expr length "$line")
-m_date=$(date +%T)
-echo -e "$m_date#to pipe1: \n$line \nsend size:$send_size"
+g_line=$(get_http "balsat-msk.ru")
+write_to_pipe "$g_line"
 
-echo -e "$m_date#to pipe1: \nquit"
-echo "quit" >$pipe1
+write_to_pipe "$g_line"
 exit 0
