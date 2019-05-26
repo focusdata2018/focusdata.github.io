@@ -59,6 +59,7 @@ local m_date=$(date +%T)
 local m_line="$1"
 
 #delete \n in base data!!!!!
+#https://www.linux.org.ru/forum/admin/5466918
 m_line=$(echo "$m_line" | tr \\n \#)
 
 #expr length not worked in big string
