@@ -66,7 +66,7 @@ else
 echo -e "$m_date#from pipe1: \n$line \nreceived_size: $received_size"
 fi
 
-  if [ "$received_size" -gt "3" ]; then 
+  if [ "$received_size" -gt "4" ]; then 
     echo "EOP">$pipe1
    
      if [[ "$line" == 'quit' ]]; then
