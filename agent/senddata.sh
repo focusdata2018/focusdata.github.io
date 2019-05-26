@@ -65,6 +65,7 @@ do
 if [ "$received_size" -gt "50" ]; then
 echo -e "$m_date#from pipe1: \nreceived_size: $received_size"
 echo "$line">b64.txt
+echo "$line" | base64 --decode
 else
 echo -e "$m_date#from pipe1: \n$line \nreceived_size: $received_size"
 fi
