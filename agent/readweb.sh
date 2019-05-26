@@ -69,7 +69,7 @@ echo -e "\n$m_date#to pipe1: \nsend size:$send_size"
 else
 echo -e "\n$m_date#to pipe1: \nsend size:$send_size"
 fi
-exit 0
+
 echo "$m_line" >$pipe1
 fi
 fi
