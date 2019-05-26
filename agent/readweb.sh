@@ -59,7 +59,7 @@ local m_date=$(date +%T)
 local m_line="$1"
 
 #delete \n in base data!!!!!
-m_line=$(echo "$m_line" | sed 's/\n/#/g')
+m_line=$(echo "$m_line" | tr \\n \#)
 
 #expr length not worked in big string
 #http://citforum.ru/operating_systems/unixuser/gl3_10_5.shtml
