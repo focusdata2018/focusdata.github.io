@@ -69,7 +69,7 @@ fi
   if [ "$received_size" -gt "4" ]; then 
     echo "EOP">$pipe1
    
-     if [[ "$line" == "quit" ]]; then
+     if [ "$line" == quit* ]; then
          echo "run break while cycle in senddata"
          break
      fi 
