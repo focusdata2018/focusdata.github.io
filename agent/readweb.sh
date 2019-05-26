@@ -57,11 +57,11 @@ if [[ "$line" == 'EOP' ]]; then
 iscanwrite=false
 local m_date=$(date +%T)
 local m_line="$1"
-#delete \n
+
+#delete \n in base data!!!!!
 m_line=$(echo "$m_line" | sed 's/\n/#/g')
 
 #expr length not worked in big string
-#send_size=$(echo "$m_line" | awk '{ print length($0) }') 
 send_size=$(echo "$m_line" | wc -c)
 
 if [ "$send_size" -gt "50" ]; then
