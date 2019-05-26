@@ -65,6 +65,7 @@ m_line=$(echo "$m_line" | sed 's/\n/#/g')
 #http://citforum.ru/operating_systems/unixuser/gl3_10_5.shtml
 send_size=$(echo "$m_line" | wc -c)
 
+#https://www.opennet.ru/docs/RUS/bash_scripting_guide/x2565.html
 if [ "$send_size" -gt "50" ]; then
 echo -e "\n$m_date#to pipe1: \nsend size:$send_size"
 else
