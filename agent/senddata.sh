@@ -59,10 +59,10 @@ do
  if read line <$pipe1; then
     if [[ "$line" != 'EOP' ]]; then 
     echo "EOP">$pipe1
-    received_size=$(expr length "$line")
+    received_size=$(echo "$line" | wc -c)
     m_date=$(date +%T)
     
-if (( $nreceived_size > 50 )); then
+if [ "$received_size" -gt "50" ]; then
 echo -e "$m_date#from pipe1: \nreceived_size: $received_size"
 else
 echo -e "$m_date#from pipe1: \n$line \nreceived_size: $received_size"
