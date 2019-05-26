@@ -37,8 +37,7 @@ if [[ "$3" ]]; then
 URLPATH="$3"
 fi
 
-echo "It will get info from $DEST:$PORT$URLPATH"
-
+local out=$((echo -e "GET $URLPATH HTTP/1.1\r\nHost: $DEST\r\nUser-Agent: Mozilla\r\nConnection: keep-alive\r\nAccept: */*\r\n\r\n"; sleep 1) | nc "$DEST" "$PORT" | base64)
 local iserror=$(echo "$out" | grep "Bad Request")
 
 if ! [[ "$iserror" ]]; then
@@ -77,6 +76,7 @@ fi
 
 write_to_pipe "Hello from $$"
 
+echo "It will get info from $DEST:$PORT$URLPATH"
 g_line=$(get_http "balsat-msk.ru")
 write_to_pipe "$g_line"
 
