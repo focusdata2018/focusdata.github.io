@@ -62,7 +62,7 @@ m_line=$(echo "$m_line" | sed 's/\n/#/g')
 
 #expr length not worked in big string
 #send_size=$(echo "$m_line" | awk '{ print length($0) }') 
-send_size=$(echo "$m_line" | awk '{ print $0 " = " length($0) }'
+send_size=$(echo "$m_line" | wc -l)
 
 if [ "$send_size" -gt "50" ]; then
 echo -e "\n$m_date#to pipe1: \nsend size:$send_size"
