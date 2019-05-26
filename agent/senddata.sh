@@ -76,4 +76,5 @@ fi
    
  fi 
 done
+echo "Normal end of senddata"
 exit 0
