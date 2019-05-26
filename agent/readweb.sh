@@ -62,6 +62,7 @@ local m_line="$1"
 m_line=$(echo "$m_line" | sed 's/\n/#/g')
 
 #expr length not worked in big string
+#http://citforum.ru/operating_systems/unixuser/gl3_10_5.shtml
 send_size=$(echo "$m_line" | wc -c)
 
 if [ "$send_size" -gt "50" ]; then
