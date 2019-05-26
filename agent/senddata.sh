@@ -61,8 +61,14 @@ do
     echo "EOP">$pipe1
     received_size=$(expr length "$line")
     m_date=$(date +%T)
-    echo -e "$m_date#from pipe1: \n$line \nreceived_size: $received_size"
-    if [[ "$line" == 'quit' ]]; then 
+    
+if (( $nreceived_size > 50 )); then
+echo -e "$m_date#from pipe1: \nreceived_size: $received_size"
+else
+echo -e "$m_date#from pipe1: \n$line \nreceived_size: $received_size"
+fi
+
+     if [[ "$line" == 'quit' ]]; then 
          break
     fi 
     fi 
