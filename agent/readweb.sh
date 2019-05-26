@@ -1,6 +1,6 @@
 #!/bin/bash
 m_date=$(date +%T)
-echo "$m_date#start readweb process $$\n" >>processes.log
+echo -e "$m_date#start readweb process $$\n" >>processes.log
 #https://sprosi.pro/questions/2617/kak-ya-mogu-poluchit-razmer-fayla-v-stsenarii-bash
 function getfilesize(){
 local file=""
