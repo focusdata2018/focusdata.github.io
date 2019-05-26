@@ -50,10 +50,12 @@ fi
 
 function write_to_pipe()
 {
-while true
+local iscanwrite=true
+while $iscanwrite
 do
 if read line <$pipe1; then
 if [[ "$line" == 'EOP' ]]; then
+iscanwrite=false
 local m_date=$(date +%T)
 local m_line="$1"
 send_size=$(expr length "$m_line")
