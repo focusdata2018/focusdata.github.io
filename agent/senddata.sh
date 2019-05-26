@@ -70,7 +70,7 @@ fi
     echo "sending EOP"
     echo "EOP">$pipe1
    
-     if [ "$line" == quit* ]; then
+     if [ "$line" = "quit." ]; then
          echo "run break while cycle in senddata"
          break
      fi 
