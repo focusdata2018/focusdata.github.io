@@ -69,8 +69,9 @@ echo -e "$m_date#from pipe1: \n$line \nreceived_size: $received_size"
 fi
 
   if [ "$received_size" -gt "4" ]; then 
-    echo -e "sending EOP"
+    echo -e "try to send EOP"
     echo "EOP">$pipe1
+    echo -e "EOP sended"
   fi 
   if [[ "$line" == 'quit' ]]; then
          echo -e "run break while cycle in senddata"
