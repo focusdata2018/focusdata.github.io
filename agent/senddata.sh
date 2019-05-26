@@ -72,6 +72,7 @@ fi
   fi 
   if [[ "$line" == 'quit' ]]; then
          echo -e "run break while cycle in senddata"
+         sleep 1
          break
   fi 
    
