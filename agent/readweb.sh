@@ -96,5 +96,7 @@ g_line=$(get_http "balsat-msk.ru")
 write_to_pipe "$g_line"
 
 write_to_pipe "quit"
+#rest pipe1 befor end
+read line <$pipe1
 echo "Normal end of readweb"
 exit 0
