@@ -59,7 +59,7 @@ local m_date=$(date +%T)
 local m_line="$1"
 send_size=$(expr length "$m_line")
 
-if [[ $send_size -gt 50 ]]; then
+if [ "$send_size" -gt "50" ]; then
 echo -e "\n$m_date#to pipe1: \nsend size:$send_size"
 else
 echo -e "\n$m_date#to pipe1: \n$m_line \nsend size:$send_size"
