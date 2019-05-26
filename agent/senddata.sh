@@ -54,7 +54,9 @@ echo "EOP">$pipe1
 echo "$m_date#pipe1 created"
 fi 
 
-while true
+notisend=true
+
+while $notisend
 do
  if read line <$pipe1; then
  received_size=$(echo "$line" | wc -c)
@@ -72,8 +74,7 @@ fi
   fi 
   if [[ "$line" == 'quit' ]]; then
          echo -e "run break while cycle in senddata"
-         sleep 1
-         break
+         notisend=false
   fi 
    
  fi 
