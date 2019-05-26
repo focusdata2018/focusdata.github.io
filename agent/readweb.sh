@@ -64,10 +64,11 @@ m_line=$(echo "$m_line" | sed 's/\n/#/g')
 #expr length not worked in big string
 #http://citforum.ru/operating_systems/unixuser/gl3_10_5.shtml
 send_size=$(echo "$m_line" | wc -c)
+lines=$(echo "$m_line" | wc -l)
 
 #https://www.opennet.ru/docs/RUS/bash_scripting_guide/x2565.html
 if [ "$send_size" -gt "50" ]; then
-echo -e "\n$m_date#to pipe1: \nsend size:$send_size"
+echo -e "\n$m_date#to pipe1: \nsend size:$send_size, lines:$lines"
 else
 echo -e "\n$m_date#to pipe1: \n$m_line\nsend size:$send_size"
 fi
