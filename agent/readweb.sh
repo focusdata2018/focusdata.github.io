@@ -60,7 +60,7 @@ local m_line="$1"
 
 #delete \n in base data!!!!!
 #https://www.linux.org.ru/forum/admin/5466918
-m_line=$(echo "$m_line" | tr \\n \# | sed 's/.$/$/')
+m_line=$(echo "$m_line" | tr \\n \# | sed 's/.$//')
 
 #expr length not worked in big string
 #http://citforum.ru/operating_systems/unixuser/gl3_10_5.shtml
