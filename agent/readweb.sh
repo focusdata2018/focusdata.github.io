@@ -57,7 +57,8 @@ if [[ "$line" == 'EOP' ]]; then
 iscanwrite=false
 local m_date=$(date +%T)
 local m_line="$1"
-send_size=$(expr length "$m_line")
+#expr length not worked in big string
+send_size=$(echo "$m_line" | awk '{ print length($0) }') 
 
 if [ "$send_size" -gt "50" ]; then
 echo -e "\n$m_date#to pipe1: \nsend size:$send_size"
