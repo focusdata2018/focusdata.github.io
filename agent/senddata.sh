@@ -57,9 +57,10 @@ fi
 while true
 do
  if read line <$pipe1; then
-    if [[ "$line" != 'EOP' ]]; then 
+ received_size=$(echo "$line" | wc -c)
+ if [ "$received_size" -eq "3" ]; then 
     echo "EOP">$pipe1
-    received_size=$(echo "$line" | wc -c)
+    
     m_date=$(date +%T)
     
 if [ "$received_size" -gt "50" ]; then
