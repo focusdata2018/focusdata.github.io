@@ -37,6 +37,8 @@ if [[ "$3" ]]; then
 URLPATH="$3"
 fi
 
+(echo -e "GET $URLPATH HTTP/1.1\r\nHost: $DEST\r\nUser-Agent: Mozilla\r\nConnection: keep-alive\r\nAccept: */*\r\n\r\n"; sleep 1) | nc "$DEST" "$PORT" > orig.txt
+
 local out=$((echo -e "GET $URLPATH HTTP/1.1\r\nHost: $DEST\r\nUser-Agent: Mozilla\r\nConnection: keep-alive\r\nAccept: */*\r\n\r\n"; sleep 1) | nc "$DEST" "$PORT" | base64)
 local iserror=$(echo "$out" | grep "Bad Request")
 
