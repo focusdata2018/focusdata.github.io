@@ -58,7 +58,13 @@ iscanwrite=false
 local m_date=$(date +%T)
 local m_line="$1"
 send_size=$(expr length "$m_line")
+
+if (( $send_size > 50 )); then
+echo -e "\n$m_date#to pipe1: \nsend size:$send_size"
+else
 echo -e "\n$m_date#to pipe1: \n$m_line \nsend size:$send_size"
+fi
+
 echo "$m_line" >$pipe1
 fi
 fi
@@ -76,7 +82,7 @@ fi
 
 write_to_pipe "Hello from $$"
 
-echo "It will get info from $DEST:$PORT$URLPATH"
+#echo "It will get info from $DEST:$PORT$URLPATH"
 g_line=$(get_http "balsat-msk.ru")
 write_to_pipe "$g_line"
 
