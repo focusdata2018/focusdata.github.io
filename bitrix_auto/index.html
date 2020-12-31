@@ -42,15 +42,21 @@
  
   <script>
   //Получение данных по контакту
-    var p_contact=new Promise(function(resolve,reject){
-         return resolve("test1");
+  function GetContact(id_contract)  
+  {
+	return new Promise(function(resolve,reject){
+	     consolole.log("Step 1");
+         resolve("test1");
     });
+  }
   </script>
 
   <script>
   //Получение данных по товарам в сделке
-    var p_products=new Promise(function(resolve,reject){
-         return resolve("test2");
+  function GetProducts(id_contract)
+    return new Promise(function(resolve,reject){
+	     consolole.log("Step 2");
+         resolve("test2");
     });
   </script>
 
@@ -62,13 +68,16 @@
    
   //var info=BX24.placement.info();
   //g_dial.dial_id=info.options.ID;
-  p_contact.then(function(data){
-    return p_products;
+  GetContact("1")
+  .then(function(data){
+    consolole.log(data);
+	return GetProducts;
   },function(error){
      let _cur_error=jQuery("#wndResult").html();
      jQuery("#wndResult").html(_cur_error+'<br>'+error);
-  }).then(function(data){
-    alert(data);
+  })
+  .then(function(data){
+    consolole.log(data);
   },function(error){
      let _cur_error=jQuery("#wndResult").html();
      jQuery("#wndResult").html(_cur_error+'<br>'+error);
