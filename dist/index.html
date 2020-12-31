@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Bitrix24 app tutorial</title>
+    <!-- подключаем библиотеку BX24 -->
+    <script src="https://api.bitrix24.com/api/v1/"></script>
+	<!-- https://yandex.ru/dev/jslibs/#jquery -->
+	<script type="text/javascript" src="https://yastatic.net/jquery/1.7.0/jquery.min.js"></script>
+  </head>
+  <body>
+  
+  <h1>Модуль автоматизации Bitrix</h1>
+  
+  <table>
+  <tr>
+  <td>
+   <button onclick="create_cp_bill();">New CP bill</button>
+  </td>
+  <td>
+   <button onclick="create_cp_bill();">New Uniexpress zakaz</button>
+  </td>
+  <td>
+   <button onclick="create_cp_bill();">New Pochta blank</button>
+  </td>
+  </tr>
+  
+  <tr>
+  <td>
+  <div id="wndResult">...</div>
+  </td>
+  </tr>
+  </table>
+ 
+ <script>
+ var g_dial={};
+ 
+ </script>
+ 
+ 
+  <script>
+  //Получение данных по контакту
+    var p_contact=new Promise(function(resolve,reject){
+  
+    });
+  </script>
+
+  <script>
+  //Получение данных по товарам в сделке
+    var p_products=new Promise(function(resolve,reject){
+  
+    });
+  </script>
+
+  
+  <script>
+  
+  function create_cp_bill()
+  {
+   
+  var info=BX24.placement.info();
+  g_dial.dial_id=info.options.ID;
+  p_contact.then(function(data){
+    return p_products;
+  },function(error){
+     let _cur_error=jQuery("#wndResult").html();
+     jQuery("#wndResult").html(_cur_error+'<br>'+error);
+  }).then(function(data){
+    alert(data);
+  },function(error){
+     let _cur_error=jQuery("#wndResult").html();
+     jQuery("#wndResult").html(_cur_error+'<br>'+error);
+  });
+  //alert(JSON.stringify(info));
+  //jQuery("#wndResult").html(info);
+  }
+  
+
+  
+  </script>
+  
+  
+    <script>
+      /**
+      * передаем методу  `init` в качестве параметра callback-функцию 
+      * - наше приложение 
+      */
+      BX24.init(app);
+
+      function app() {
+        const initDate = BX24.getAuth();
+        console.log("ititDate: ", initDate);
+      }
+    </script>
+  </body>
+</html>
