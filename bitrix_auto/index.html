@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,7 +8,7 @@
     <!-- подключаем библиотеку BX24 -->
     <script src="https://api.bitrix24.com/api/v1/"></script>
 	<!-- https://yandex.ru/dev/jslibs/#jquery -->
-	<script type="text/javascript" src="https://yastatic.net/jquery/1.7.0/jquery.min.js"></script>
+	<script src="https://yastatic.net/jquery/1.7.0/jquery.min.js"></script>
   </head>
   <body>
   
@@ -44,14 +43,14 @@
   <script>
   //Получение данных по контакту
     var p_contact=new Promise(function(resolve,reject){
-  
+         return resolve;
     });
   </script>
 
   <script>
   //Получение данных по товарам в сделке
     var p_products=new Promise(function(resolve,reject){
-  
+         return resolve;
     });
   </script>
 
