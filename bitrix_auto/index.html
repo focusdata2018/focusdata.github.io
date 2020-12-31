@@ -73,13 +73,14 @@
   GetContact("1")
   .then(function(data){
     console.log(data);
-	return GetProducts;
+	return GetProducts("1");
   },function(error){
      let _cur_error=jQuery("#wndResult").html();
      jQuery("#wndResult").html(_cur_error+'<br>'+error);
   })
   .then(function(data){
     console.log(data);
+    console.log("End script");
   },function(error){
      let _cur_error=jQuery("#wndResult").html();
      jQuery("#wndResult").html(_cur_error+'<br>'+error);
